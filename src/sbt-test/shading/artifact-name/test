@@ -1,0 +1,7 @@
+> assertName artifact-name-v0
+
+> 'set version := "1.0.0"'
+> assertName artifact-name-v1
+
+> 'set version := "2.0.0"'
+> assertName artifact-name-v2
