@@ -95,7 +95,7 @@ Consider a library, `lib-stats % 1.0.0`, that records metrics. It has a `com.ral
 ### Chapter 2: The breaking change
 
 1. One day, a well-meaning developer decides that `Stats.inc()` should really be renamed to `Stats.increment()`.
-1. He renames the method and releases `lib-stats 2.0.0` as a major83 version, signaling the breaking change. He also updates `lib-queue` to make use of it and releases `2.0.0` of that as well.
+1. He renames the method and releases `lib-stats 2.0.0` as a major version, signaling the breaking change. He also updates `lib-queue` to make use of it and releases `2.0.0` of that as well.
 1. You need the latest queue-y goodness for a new feature due tomorrow, so you update to the latest `lib-queue`. Your code compiles. Your unit tests pass. You deploy it to dev.
 1. You're shocked to discover that both HTTP and Caching are broken.
 
@@ -155,7 +155,7 @@ If the consequences of duplicating global state is unacceptable, shading may not
 ### Minor/Patch breakages
 This plugin only solves for breaking changes across major versions.
 
-[rally-versioning](https://github.com/AudaxHealthInc/rally-versioning#checking-semantic-versioning) complements this plugin by providing SemVer enforcement for minor/patch releases using the Typesafe [Migration Manager](https://github.com/typesafehub/migration-manager).
+[sbt-git-versioning](https://github.com/rallyhealth/sbt-git-versioning) complements this plugin by providing SemVer enforcement for minor/patch releases using the Typesafe [Migration Manager](https://github.com/typesafehub/migration-manager).
 
 ## Alternatives
 
@@ -167,7 +167,7 @@ A framework for managing components on the JVM. Requires running inside a third 
 
 ### Java 9: Project Jigsaw
 Released with Java 9. This solves a somewhat different problem: breaking down monolithic JARs -- namely the JDK --
-into smaller, more independent parts. It allows a JAR to more explicit define what classes/packages are being exposed
+into smaller, more independent parts. It allows a JAR to more explicitly define what classes/packages are being exposed
 and what transitive dependencies are being shared with the consuming application.
 
 Modules _can_ solve the problem of two different JARs each defining their own _internal_ `com.acme.Foo` and the
