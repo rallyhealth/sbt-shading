@@ -17,18 +17,18 @@ class FileShadingErrorsException(shadedVersion: String, errors: Seq[FileShadingE
 sealed trait FileShadingError
 
 /**
-  * Package declartion does not contain the shaded version.
+  * Package declaration does not contain the shaded version.
   */
 case class PackageNameUnshaded(wrongName: String) extends FileShadingError
 
 /**
-  * package declaration could not be found in the file.
+  * Package declaration could not be found in the file.
   *
   * There is no reason to do this in libraries.
   */
 case object PackageNameMissing extends FileShadingError
 
 /**
-  * Directory structure does not contain the shaded name shaded version.
+  * Directory structure does not contain the shaded version.
   */
 case object DirectoryUnshaded extends FileShadingError
