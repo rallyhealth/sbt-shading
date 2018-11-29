@@ -1,0 +1,19 @@
+> shadingCheck
+
+# A class with no package is not shaded.
+$ copy-file templates/Unpackaged.scala src/main/scala/Unpackaged.scala
+-> shadingCheck
+$ delete  src/main/scala/Unpackaged.scala
+
+# A class with an unshaded package is not shaded.
+$ copy-file templates/foo/Unshaded.scala src/main/scala/foo/Unshaded.scala
+-> shadingCheck
+$ delete src/main/scala/foo/Unshaded.scala
+
+# A class with a shaded package should pass.
+$ copy-file templates/foo/v0/Shaded.scala src/main/scala/foo/v0/Shaded.scala
+> shadingCheck
+# But not against the wrong version
+> 'set version := "1.0.0"'
+-> shadingCheck
+$ delete src/main/scala/foo/v0/Shaded.scala
